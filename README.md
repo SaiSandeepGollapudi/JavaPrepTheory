@@ -96,7 +96,7 @@ Abstract: can only be used in the abstract class and can only be used on methods
 
 
 Encapsulation:
-Encapsulation refers to integrating (variables) and  (methods) into a single unit. It restricts direct access to some of the object's components and prevents the accidental modification of data.
+Encapsulation refers to integrating (variables) and (methods) into a single unit. It restricts direct access to some internal variables and methods and prevents the accidental modification of data.
 
 Notes
 Declare class variables as private
@@ -158,24 +158,45 @@ Exceptions:
 An exception is an event that might disrupt the normal flow of the program. But Exception handling handles these situations and prevents program crashes.
 
 try
-The try statement has a code that may throw exceptions.
+The try block has a code that may throw exceptions.
 
 catch
-The catch statement specifies how to handle different types of exceptions. When an exception occurs in the try block, it is transferred to the appropriate catch block to handle the exception.
+The catch block specifies how to handle different types of exceptions. When an exception occurs in the try block, it is transferred to the appropriate catch block to handle the exception.
 
-final
-​​​​The final statement lets us execute code after try...catch, regardless of the result
-
+finally
+The finally block is used to execute code that should be run regardless of whether an exception is thrown or caught
 Throw:
 Throw is used to explicitly throw an exception within a method 
 You can throw both built-in exceptions (e.g., NullPointerException, ArithmeticException) and custom exceptions that extend the Exception class or one of its subclasses.
 
-throws:
-The throws keyword is used in the method signature, when a method can potentially throw an exception but does not handle it internally, 
+Syntax
+throw new NullPointerException("Custom message for NullPointerException");
+throw new CustomException("Custom message for CustomException");
 
-you can declare the exceptions it may throw. This informs callers of the method about the exceptions. When we use throws and there is a custom exception then we use “extends exception”.
-public void someMethod() throws IOException {
-    // Method logic that may throw IOException
-}
+throws:
+The throws keyword is used in the method signature when a method can potentially throw an exception but does not handle it internally. 
+
+Compile Time:
+
+Compilation detects errors such as syntax errors, type mismatches, and other compile-time errors. These errors prevent the program from being successfully compiled into bytecode.
+
+Runtime:
+Runtime refers to the phase during which the compiled Java bytecode is executed by the Java Virtual Machine (JVM).
+The program's behavior during runtime includes dynamic memory allocation, object instantiation, method invocation, and exception handling.
+Errors that occur during runtime are known as runtime errors or exceptions. These errors occur while the program is running and may be due to logical errors, resource unavailability, input data issues, or unexpected conditions.
+Examples of runtime errors include NullPointerException, ArrayIndexOutOfBoundsException, and ArithmeticException.
+
+
+Checked Exception: 
+Exceptions that are checked at compile time. They must be either handled or declared using the throws keyword in the method signature. 
+Checked exceptions typically represent recoverable conditions that the program can handle.
+
+Examples include IOException and SQLException. 
+IOException: This exception is thrown when an I/O operation fails or is interrupted.
+SQLException: It is thrown when there is an error in the database access or SQL operations.
+ClassNotFoundException: This exception is thrown when an application tries to load a class by name but the class cannot be found.
+FileNotFoundException: Thrown when an attempt to access a file that doesn't exist occurs.
+
+
 
 
