@@ -194,9 +194,134 @@ Checked exceptions typically represent recoverable conditions that the program c
 Examples include IOException and SQLException. 
 IOException: This exception is thrown when an I/O operation fails or is interrupted.
 SQLException: It is thrown when there is an error in the database access or SQL operations.
-ClassNotFoundException: This exception is thrown when an application tries to load a class by name but the class cannot be found.
-FileNotFoundException: Thrown when an attempt to access a file that doesn't exist occurs.
+
+Unchecked Exceptions (Runtime Exceptions):
+Unchecked exceptions are not checked at compile-time; hence, they do not require being handled explicitly using try-catch or declared using throws. These exceptions usually occur due to programming errors and can be prevented by writing robust code. Some common unchecked exceptions include:
+NullPointerException: Occurs when a method tries to access a member of an object that is null.
+ArrayIndexOutOfBoundsException: Thrown when an invalid index is used for accessing an array.
+ArithmeticException: This exception occurs when an arithmetic operation encounters an exceptional condition (e.g., division by zero).
 
 
+Inheritance: Inheritance  allows a class (subclass) to inherit fields and methods from another class (superclass). Subclasses can extend the functionality of their superclass and add their own unique features.
+
+This vs Super
+This is to reference variables, methods in same class, super is reference to a super class
+Overriding: Method overriding  occurs when a subclass provides a specific implementation of a method that is already defined in its superclass
+Dynamic Method Dispatch 
+
+When a super class reference holding the object of sub class and overridden method is called then method of sub class will be called. It is useful for achieving Runtime Polymorphism.
+
+Polymorphism: polymorphism means one name different actions. Polymorphism is achieved using method overriding and overloading.. Polymorphism promotes code reuse, enables flexibility and extensibility in code design 
+Overloading: Method overloading  occurs when multiple methods in the same class have the same name but different parameter lists. Method overriding is used for runtime polymorphism
+Overriding: Redefining the method of the Super Class in the Sub Class. Method overriding is achieved in Inheritance. In method overriding signature is same. Method overriding is used for runtime polymorphism
+multiprogramming
+Running more than one program that is running multiple programs on a single machine or a computer
+						
+Multi-Tasking 	
+Single user runs multiple tasks simultaneously	
+
+Multi threading
+Different tasks going  	on under single app
+
+Eg; on browser video playing, ads on the side, comments 		
+
+Life Cycle of a Thread 
+
+A thread  at any point of time exists in any one of the following states. A thread lies only in one of the shown states at any instant:
+New State
+Runnable State
+Blocked State
+Waiting State
+Timed Waiting State
+Terminated State
+
+Priorities in threads is a concept where each thread is having a priority which in layman’s language one can say every object is having priority here which is represented by numbers ranging from 1 to 10
+
+Whenever we create a thread , it always has some priority assigned to it. Priority can either be given by JVM while creating the thread or it can be given by the programmer explicitly. 
+
+
+Thread Class  
+A thread is a program that starts with a method() frequently used in this class only known as the start() method. This method looks out for the run() method which is also a method of this class and begins executing the body of the run() method. 
+
+Note: Every class that is used as thread must implement Runnable interface and over ride it’s run method.
+	
+	Thread Lifecycle:
+Threads  have a lifecycle consisting of various states, including New, Runnable, Blocked, Waiting, Timed Waiting, and Terminated.
+The start() method is used to transition a thread from the New state to the Runnable state, initiating its execution.
+Once started, a thread executes its run() method and may transition to other states based on various conditions, such as synchronization or waiting for I/O operations.
+Thread Methods:
+The Thread class provides methods for managing and controlling threads, such as start() to start a thread, sleep() to pause the execution of a thread for a specified period, join() to wait for a thread to complete its execution, and interrupt() to interrupt a thread's execution.
+Other methods include getName() and setName() to get and set the name of a thread, isAlive() to check if a thread is alive, and isDaemon() and setDaemon() to check and set a thread's daemon status.
+
+Daemon threads are dependent threads so if  main method is terminating then daemon also terminates making the thread above not print anything
+Join
+//Now even though daemon terminates, Instead of terminate Join will keep it waiting till the other thread is done
+		sleep
+		//to make the thread delay for some time, done in milliseconds
+interrupt
+//after the first print when the thread was sleeping for 1000 milliseconds it was interrupted/woken up by interrupt() to continue its execution
+yield();
+// A hint to the scheduler that the current thread is willing to yield its current use of a processor
+
+
+
+Generics 
+
+allows us to define classes, interfaces, and methods with type parameters. This enables you to create reusable code that can work with different data types while providing compile-time type safety.
+
+Collection
+
+Any group of individual objects which are represented as a single unit is known as collections.
+ Eg: List of objects of Students, means his roll no, name, etc
+
+
+
+ ArrayList
+
+ArrayList provides us with dynamic arrays . The size of an ArrayList is increased automatically if the collection grows or shrinks if the objects are removed from the collection.
+
+ LinkedList
+
+ LinkedList is a linear data structure where elements are stored as individual nodes, each containing a reference to the next node in the sequence. 
+
+ArrayDeque
+
+It is a data structure that is a resizable array-based double-ended queue implementation. 
+
+Priority queue
+
+It is a data structure, in which elements are inserted and deleted based on the priority
+
+Hashing
+
+It is a technique to efficiently store and retrieve data in a data structure
+
+HashSet
+
+A `HashSet` is a collection that stores unique elements in an unordered manner, using a hash table-based implementation.
+
+TreeSet
+
+A `TreeSet` is a sorted collection that does not allow duplicate elements. 
+
+Comparable interface
+
+The Comparable interface is used to define a natural ordering for objects of a class.
+
+TreeMap
+
+A TreeMap is a sorted map implementation that stores key-value pairs
+
+HashMap
+
+ A HashMap​​ is a data structure that stores key-value pairs in a collection uses hashing 
+
+​​LinkedHashMap
+
+is a variation of the HashMap class that maintains a predictable iteration order of its entries based on the order in which they were inserted. 
+
+LinkedHashSet
+
+This data structure provides predictable iteration order, making it useful when you need both uniqueness and the preservation of the order in which elements were inserted.
 
 
