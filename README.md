@@ -465,4 +465,16 @@ A Stream Pipeline is a concept of chaining operations together Terminal Operatio
         List<String> filteredNames = names.stream().filter(name -> name.startsWith("A")).collect(Collectors.toList());
         System.out.println("Filtered names starting with 'A': " + filteredNames);
 
-       
+       Maven: Java build automation tool for managing dependencies and project builds.
+
+
+
+
+Maven: Java build automation tool for managing dependencies and project builds. It manages project dependencies providing a uniform build system 
+
+Why Maven?
+
+It simplifies Java development by automating build processes and managing project dependencies, leading to faster and more efficient software development. 
+
+
+
