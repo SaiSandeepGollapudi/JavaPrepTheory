@@ -263,6 +263,17 @@ interrupt
 yield();
 // A hint to the scheduler that the current thread is willing to yield its current use of a processor
 
+Thread 	:
+Synchronization is used to make sure by some synchronization method that only one thread can access the resource at a given point in time. 
+
+Critical Section, Race Condition, and Mutual Exclusion: These terms are closely related and are fundamental concepts in concurrent programming. A critical section is a part of the code that accesses shared resources and must be executed atomically to prevent race conditions, where multiple threads may access shared resources concurrently and lead to inconsistent behavior. Mutual exclusion mechanisms, such as locks (including mutexes) or semaphores, are used to ensure that only one thread can access a critical section at a time, thus preventing race conditions.
+Locks, Mutex (Mutual Exclusion), Semaphore, and Condition Variable: These are synchronization primitives used to coordinate access to shared resources and manage the execution of threads in concurrent systems. Locks, mutexes, and semaphores provide mechanisms for mutual exclusion, while condition variables allow threads to wait for specific conditions before proceeding. These mechanisms are often used together to implement complex synchronization patterns.
+
+Java provides synchronization mechanisms such as synchronized blocks and methods, as well as wait() and notify() methods, to ensure thread safety and prevent race conditions.
+
+monitor
+		 	 	 	
+A monitor is essentially a module that encapsulates a shared resource and provides access to that resource through a set of procedures. The procedures provided by a monitor ensure that only one process can access the shared resource at any given time, and that processes waiting for the resource are suspended until it becomes available.
 
 
 Generics 
@@ -470,11 +481,10 @@ A Stream Pipeline is a concept of chaining operations together Terminal Operatio
 
 
 
-Maven: Java build automation tool for managing dependencies and project builds. It manages project dependencies providing a uniform build system 
+Maven: Java build automation tool for automating project build processes and managing project dependencies. It manages project dependencies providing a uniform build system. 
 
 Why Maven?
 
-It simplifies Java development by automating build processes and managing project dependencies, leading to faster and more efficient software development. 
+It simplifies Java development by automating project build processes and managing project dependencies, leading to faster and more efficient software development. 
 
-
-
+maven plugin is a collection of one or more goals, when you created the project and built it the generate goal from the archetype plugin and the install goal from the install
