@@ -1,4 +1,4 @@
-# JavaPrepTheory
+![image](https://github.com/SaiSandeepGollapudi/JavaPrepTheory/assets/121837745/05d62ccb-1a2b-4f37-8be8-67b10b812ce5)# JavaPrepTheory
 
 **Benefits of using Java?
 **
@@ -325,3 +325,144 @@ LinkedHashSet
 This data structure provides predictable iteration order, making it useful when you need both uniqueness and the preservation of the order in which elements were inserted.
 
 
+						
+FunctionalInterface
+
+It is an interface that contains exactly one abstract method		
+
+It enables the use of lambda expressions to provide implementations for the abstract method.	
+
+Eg: Runnable Interface, comparable Interface,  		 								
+
+Functional Interfaces are categorized into these
+producer  -> which will not accept anything, but will give the data  ->  instagram or content feed.
+ consumer  -> which will accept the parameter and will not return anything -> data analytics, form submit
+predicate  -> which will accept the parameter and will return any parameter -> used in testing
+
+
+// Implement the functional interface using a lambda expression
+MyFunctionalInterface func = () -> System.out.println("My method implementation");
+
+
+// Use a predefined functional interface (Supplier) with a lambda expression to generate a random number
+Supplier<Double> randomNumber = () -> Math.random();
+
+// Use a predefined functional interface (Consumer) with a lambda expression to print a string in uppercase
+Consumer<String> printUpperCase = str -> System.out.println(str.toUpperCase());
+
+Lambda expressions 
+are used for developing anonymous expressions or nameless methods or functions.
+
+Lambda expressions are defined with the help of interfaces.
+Return keyword may not used in case of lambda expression.
+
+Syntax
+
+parameter -> expression
+(parameter1, parameter2) -> expression
+(parameter1, parameter2) -> { code block }
+
+Using lambda with functional interfaces like Comparator:
+
+Comparator<String> comparator = (String s1, String s2) -> s1.compareTo(s2);
+
+Using lambda with functional interfaces like Runnable:
+
+Runnable task = () -> System.out.println("Executing task");
+
+Using lambda with functional interfaces and method references:
+
+List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+names.forEach(System.out::println);
+
+Using lambda with conditional expressions:
+
+IntPredicate greaterThanTen = x -> x > 10;
+
+Using lambda with streams:
+
+ If the lambda expression needs to return a value, then the code block should have a return statement.
+
+stream 
+is a sequence of objects that supports various methods that can be pipelined to produce the desired result.	
+		
+The features of Java stream are –
+A stream is not a data structure instead it takes input from the Collections, Arrays, or I/O channels.
+
+Streams don’t change the original data structure, they only provide the result as per the pipelined methods.
+
+Each intermediate operation is lazily executed and returns a stream as a result, hence various intermediate operations can be pipelined. Terminal operations mark the end of the stream and return the result.
+
+Benefits of using Stream:
+No Storage
+Pipeline of Functions
+Lazy Evaluation is the concept in Java Streams where computation on the source data is only performed when the terminal operation is initiated, and source elements are consumed only as needed. It is called lazy because intermediate operations are not evaluated unless a terminal operation is invoked.
+Can be infinite
+Can be parallelized
+Can be created from collections, arrays, Files Lines, and Methods in Stream, IntStream, etc.
+
+1. Readable, Short and Efficient code:-
+
+Every code starts with a source, followed by intermediate operations and terminal operation. Each intermediate operation is lazily executed and returns a stream as a result, hence various intermediate operations can be pipelined such as filter(), sort(), distinct() etc. Terminal operations mark the end of the stream and return the result such as sum(), average() etc. Thus it is readable, clean, and efficient.
+
+2. Works great with Lambda Expressions and Method References:-
+
+ Stream functions mainly takes action as an argument. These functions can take lambda expressions multiple times. Therefore during a pass-through, a lambda expression can pass both functions and method references. Together these provide a concise way of writing code.
+
+3. Streams can be parallelised:-
+
+ The streams provide options like parallel() to convert the sequential stream to a parallel stream.
+
+4. Streams don't change the original structure:-
+
+Streams don’t change the original data structure, they only provide the result as per the pipelined methods.
+
+5. In Intermediate operations:- 
+
+Each intermediate operation is lazily executed and transforming a stream into another stream, hence various intermediate operations can be pipelined. 
+
+
+map: The map method is used to returns a stream consisting of the results of applying the given function to the elements of this stream. List number = Arrays.asList(2,3,4,5); List square = number.stream().map(x->x*x).collect(Collectors.toList());
+filter: The filter method is used to select elements as per the Predicate passed as argument. List names = Arrays.asList("Reflection","Collection","Stream"); List result = names.stream().filter(s->s.startsWith("S")).collect(Collectors.toList());
+sorted: The sorted method is used to sort the stream. List names = Arrays.asList("Reflection","Collection","Stream"); List result = names.stream().sorted().collect(Collectors.toList());
+
+Terminal Operations
+Terminal operations mark the end of the stream and return the result. Terminal Operations are the operations that on execution return a final result as an absolute value.
+
+collect: The collect method is used to return the result of the intermediate operations performed on the stream. List number = Arrays.asList(2,3,4,5,3); Set square = number.stream().map(x->x*x).collect(Collectors.toSet());
+forEach: The forEach method is used to iterate through every element of the stream. List number = Arrays.asList(2,3,4,5); number.stream().map(x->x*x).forEach(y->System.out.println(y));
+reduce: The reduce method is used to reduce the elements of a stream to a single value. The reduce method takes a BinaryOperator as a parameter. List number = Arrays.asList(2,3,4,5); int even = number.stream().filter(x->x%2==0).reduce(0,(ans,i)-> ans+i);
+
+
+filter(): The filter method is used to select elements as per the Predicate passed as an argument.
+forEach(): This is a terminal operation. The forEach method is used to iterate through every element of the stream.
+min(): This is a terminal operation. Used to find the minimum element in a stream.
+max(): This is a terminal operation. Used to find the maximum element in a stream.
+skip(): Used to skip the number of elements in a stream.
+findFirst(): This is a terminal operation. Used to find the first element of the stream.
+count(): This is a terminal operation. Used to count elements in a current stream.
+distinct(): It is an intermediate operation. It returns the stream with distinct elements present in the current stream.
+sorted(): It is an intermediate operation. It takes a stream and returns the sorted version of the stream.
+reduce(): This is a terminal operation. Used to concatenate all the strings or add the elements.
+collect(): This is a terminal operation. It Converts the stream into a collection.
+
+sum(): This is a terminal operation. Used to find the sum of a stream.
+average(): This is a terminal operation. Used to find the average of a stream.
+boxed(): This takes a primitive type of stream and converts them into a non-primitive stream of wrapper class.
+
+wherever the concept of the collection is applicable, stream concept can be applied there. 
+
+ What is a Pipeline?
+A Stream Pipeline is a concept of chaining operations together Terminal Operations and Intermediate Operations. A Pipeline contains a stream source, which is further followed by zero or more intermediate operations, and a terminal operation.
+
+ 
+	List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+
+        // Print each element in the list using streams and forEach
+        names.stream().forEach(System.out::println);
+
+        // Filter the list to get only names starting with 'A' using streams and filter
+        List<String> filteredNames = names.stream().filter(name -> name.startsWith("A")).collect(Collectors.toList());
+        System.out.println("Filtered names starting with 'A': " + filteredNames);
+
+       
