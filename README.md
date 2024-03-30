@@ -456,7 +456,7 @@ findFirst(): This is a terminal operation. Used to find the first element of the
 count(): This is a terminal operation. Used to count elements in a current stream.
 distinct(): It is an intermediate operation. It returns the stream with distinct elements present in the current stream.
 sorted(): It is an intermediate operation. It takes a stream and returns the sorted version of the stream.
-reduce(): This is a terminal operation. Used to concatenate all the strings or add the elements.
+reduce(): This is a terminal operation. Used to concatenate all the strings or add the elements. Syntax: reduce(0.0, (x,y)-> x+y): It will take the initial value from where to start and then we can pass the condition of what to do in that like add, max)  
 collect(): This is a terminal operation. It Converts the stream into a collection.
 
 sum(): This is a terminal operation. Used to find the sum of a stream.
@@ -466,6 +466,8 @@ boxed(): This takes a primitive type of stream and converts them into a non-prim
 Optional- It's used to handle null pointer exceptions 
 
 'DoubleStream' can store only double value. 
+
+Syntax : 
 
 Arrays.stream(arrayName): It's a static method in the Arrays class to convert an array into a stream 
 
