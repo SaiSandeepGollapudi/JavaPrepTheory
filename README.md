@@ -103,6 +103,7 @@ Declare class variables as private
 To allow controlled access to these private variables, public getter and setter methods are provided. 
 Exposing only the necessary functionality through public methods, while hiding the internal implementation details.
 Class variables can be made read-only (if you only use the get method), or write-only (if you only use the set method)
+The get method will have a return in it and in set method we set the value using this 
 
 Package
 It is used to group related classes, package are 2 types:  built-in ( packages from Java API) and user-defined
