@@ -1,4 +1,4 @@
-![image](https://github.com/SaiSandeepGollapudi/JavaPrepTheory/assets/121837745/05d62ccb-1a2b-4f37-8be8-67b10b812ce5)# JavaPrepTheory
+JavaPrepTheory
 
 **Benefits of using Java?
 **
@@ -437,6 +437,7 @@ map: The map method is used to returns a stream consisting of the results of app
 filter: The filter method is used to select elements as per the Predicate passed as argument. List names = Arrays.asList("Reflection","Collection","Stream"); List result = names.stream().filter(s->s.startsWith("S")).collect(Collectors.toList());
 sorted: The sorted method is used to sort the stream. List names = Arrays.asList("Reflection","Collection","Stream"); List result = names.stream().sorted().collect(Collectors.toList());
 
+
 Terminal Operations
 Terminal operations mark the end of the stream and return the result. Terminal Operations are the operations that on execution return a final result as an absolute value.
 
@@ -460,6 +461,8 @@ collect(): This is a terminal operation. It Converts the stream into a collectio
 sum(): This is a terminal operation. Used to find the sum of a stream.
 average(): This is a terminal operation. Used to find the average of a stream.
 boxed(): This takes a primitive type of stream and converts them into a non-primitive stream of wrapper class.
+
+Arrays.stream(arrayName): It's a static method in the Arrays class to convert an array into a stream 
 
 wherever the concept of the collection is applicable, stream concept can be applied there. 
 
