@@ -463,6 +463,10 @@ sum(): This is a terminal operation. Used to find the sum of a stream.
 average(): This is a terminal operation. Used to find the average of a stream.
 boxed(): This takes a primitive type of stream and converts them into a non-primitive stream of wrapper class.
 
+Optional- It's used to handle null pointer exceptions 
+
+'DoubleStream' can store only double value. 
+
 Arrays.stream(arrayName): It's a static method in the Arrays class to convert an array into a stream 
 
 wherever the concept of the collection is applicable, stream concept can be applied there. 
