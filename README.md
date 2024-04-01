@@ -215,16 +215,30 @@ When a super class reference holding the object of sub class and overridden meth
 Polymorphism: polymorphism means one name different actions. Polymorphism is achieved using method overriding and overloading.. Polymorphism promotes code reuse, enables flexibility and extensibility in code design 
 Overloading: Method overloading  occurs when multiple methods in the same class have the same name but different parameter lists. Method overriding is used for runtime polymorphism
 Overriding: Redefining the method of the Super Class in the Sub Class. Method overriding is achieved in Inheritance. In method overriding signature is same. Method overriding is used for runtime polymorphism
+
 multiprogramming
 Running more than one program that is running multiple programs on a single machine or a computer
 						
 Multi-Tasking 	
 Single user runs multiple tasks simultaneously	
 
-Multi threading
-Different tasks going  	on under single app
+Multithreading
+Different tasks going on under single app
 
 Eg; on browser video playing, ads on the side, comments 		
+
+Parallel: Simultaneously executing multiple tasks that require different types of inputParallel:
+Example: Coding while listening to music, where coding is done manually and listening to music is done by ear.
+
+
+Concurrent
+Definition: Alternating between multiple tasks, often within short intervals, without necessarily executing them simultaneously.
+Example: Switching back and forth between coding and replying to a message, handling each task within seconds.
+
+Asynchronous:
+
+Definition: Executing tasks independently of the main program flow, typically by initiating tasks and processing results separately from the main program execution.
+Example: Initiating a task (such as sending an email) and continuing program execution without waiting for the task to complete, handling the task's completion asynchronously.
 
 Life Cycle of a Thread 
 
@@ -258,9 +272,12 @@ Daemon threads are dependent threads so if  main method is terminating then daem
 Join
 //Now even though daemon terminates, Instead of terminate Join will keep it waiting till the other thread is done
 		sleep
-		//to make the thread delay for some time, done in milliseconds
+		//to make the thread delay for some time, done in milliseconds.` // sleep method is used in try block, as sleep method can be Interrupted so we handle InterruptedException and we throw new RuntimeException
+
+  
 interrupt
 //after the first print when the thread was sleeping for 1000 milliseconds it was interrupted/woken up by interrupt() to continue its execution
+
 yield();
 // A hint to the scheduler that the current thread is willing to yield its current use of a processor
 
@@ -272,9 +289,51 @@ Locks, Mutex (Mutual Exclusion), Semaphore, and Condition Variable: These are sy
 
 Java provides synchronization mechanisms such as synchronized blocks and methods, as well as wait() and notify() methods, to ensure thread safety and prevent race conditions.
 
+super- assigning a value to our thread by calling the super class thread
+
+
 monitor
 		 	 	 	
 A monitor is essentially a module that encapsulates a shared resource and provides access to that resource through a set of procedures. The procedures provided by a monitor ensure that only one process can access the shared resource at any given time, and that processes waiting for the resource are suspended until it becomes available.
+
+Executor service- Its interface where we can tell how many threads can be used to ensure only those many thread are created. 
+
+syntax- ExecutorService executor = Executors.newFixedThreadPool(int numberOfThreads);
+
+The drawback of the Executor service is it cannot give proper support for exception handling  
+
+The future feature allows you to asynchronously execute tasks and retrieve their results, providing a flexible and efficient way to manage concurrent computations in Java
+
+The Future objects returned by the submit() method allow you to retrieve the results of the tasks using the get() method. 
+
+In Java 8, to overcome the drawbacks of the Executor service, the CompletableFuture class was added which implements the Future feature (which is a wrapper object) that provides methods like get. 
+
+AtomicInteger is a  thread-safe integer variable that allows for atomic operations without the need for explicit synchronization. It ensures that operations like incrementing, decrementing, and updating the integer value are performed atomically
+
+        AtomicInteger b = new AtomicInteger(15);
+
+ thread-safe
+ the behavior will remain predictable and free from race conditions, deadlocks, or other concurrency-related issues. Thread safety is typically achieved through synchronization mechanisms, such as locks, atomic operations, or immutable data structures.
+
+Java Database Connectivity (JDBC) API consists of several key components that enable Java applications to interact with databases. Here are the main components of JDBC:
+
+Driver:
+The Driver interface is implemented by JDBC drivers to provide database-specific implementations.
+Each JDBC driver provides its own implementation of the Driver interface to communicate with a specific database management system (DBMS).
+Connection:
+The Connection interface represents a connection to a specific database.
+It provides methods for creating statements, managing transactions, and interacting with the database.
+Statement:
+The Statement interface represents a SQL statement that is sent to the database for execution.
+It provides met
+ResultSet:
+The ResultSet interface represents the result set of a SQL query executed against the database.
+
+cd /path/to/directory
+sqlite3
+.open example.db- Create Database
+.databases- .databases command, which lists all open databases:
+
 
 
 Generics 
@@ -497,4 +556,79 @@ Why Maven?
 
 It simplifies Java development by automating project build processes and managing project dependencies, leading to faster and more efficient software development. 
 
-maven plugin is a collection of one or more goals, when you created the project and built it the generate goal from the archetype plugin and the install goal from the install
+JAR (Java ARchive) file is a compressed file format used to package Java class files, and associated metadata, into a single file. JAR files are used for distributing Java applications and libraries. They are platform-independent and can be executed on any system that has the Java Runtime Environment (JRE) installed.
+
+JAR files are used for distributing compiled Java code and resources, packages are used within the source code to organize and manage classes and interfaces logically. JAR files can contain multiple packages. We should use the file with no vulnerabilities.  
+
+
+JAR file will have a POM (project object model)file, 
+
+Maven lifecycle refers to these predefined sequence of phases 
+
+clean: Deletes the build directory, removing all generated files.
+
+validate: Validates the project's structure and configuration.
+
+compile: Compiles the project's source code.
+
+test: Executes unit tests for the compiled source code.
+
+package: Packages the compiled code into a distributable format, such as JAR or WAR.
+
+verify: Runs any checks on the package to ensure its correctness and integrity.
+
+install: Installs the package into the local Maven repository, making it available for other projects on the same machine.
+
+deploy: Copies the package to a remote repository for sharing with other developers or projects.
+
+These 3 statements make JAR unique and allow us search and to get a JAR file 
+
+<groupId>org.example</groupId>
+    <artifactId>MultithreadingDemo</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+ We can copy the <dependency> lines of a JAR file from inline and paste it into our POM file and those files will get added to our IDE
+
+We can also download a jar file from Maven online and add that by file - project structure, - library, and add library.
+
+JSP 
+JSP: JavaServer Pages - Dynamic web pages using Java embedded in HTML.
+
+Servlets: Java classes extending web server functionality for handling HTTP requests and generating responses.
+
+Java code that runs on the web server
+ Reads user’s actions ... normally from HTML Form
+ Performs the work
+ Returns an HTML page that is generated dynamically
+       
+JSP file
+ 
+An HTML page with some Java code sprinkled in... Include dynamic content from Java code
+
+
+JSP is processed on the server
+
+expression Syntax
+
+<%= some Java expression %>
+
+Converting a string to uppercase: <%= new String("Hello World").toUpperCase() %>
+
+25 multiplied by 4 equals <%= 25*4 %>
+
+Is 75 less than 69? <%= 75 < 69 %>
+
+ Scriptlet - Best Practice
+
+Minimize the amount of scriptlet code in a JSP 
+Avoid dumping thousands of lines of code in a JSP  Refactor this into a separate Java class ... make use of MVC
+
+<% some Java code: 1 to many lines %>
+
+<%
+	for (int i=1; i <=5; i++) {
+		out.println("<br/>I really luv2code: " + i);
+	}
+%>
+
+<%! variable or method declaration %>
