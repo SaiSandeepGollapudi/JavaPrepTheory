@@ -631,4 +631,46 @@ Avoid dumping thousands of lines of code in a JSP  Refactor this into a separa
 	}
 %>
 
+
 <%! variable or method declaration %>
+
+<%!
+	String makeItLower(String data) {
+		return data.toLowerCase();
+	}
+%>
+
+Lower case "Hello World": <%= makeItLower("Hello World") %>
+
+
+JSP objects
+
+request
+Contains HTTP request headers and form data
+  
+ response
+ Provides HTTP support for sending response
+
+ 
+ out
+ JspWriter for including content in the HTML page
+
+ session
+A unique session for each user of the web application
+ 
+ application
+ Shared data for all users of the web application
+
+Request user agent: <%= request.getHeader("User-Agent") %>
+
+  The request object represents the client's HTTP request. The getHeader("User-Agent") method retrieves the value of the "User-Agent" header from the request, which typically contains information about the client's browser and operating system.
+
+Request language: <%= request.getLocale() %>
+The getLocale() method of the request object retrieves the locale information from the request, which indicates the language preferences of the client's browser.
+
+JSP - Including Files
+<jsp:include page="myHeader.html" />
+
+Blah blah blah .... <br/> <br/>
+
+<jsp:include page="myFooter.jsp" />
