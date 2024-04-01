@@ -674,3 +674,5 @@ JSP - Including Files
 Blah blah blah .... <br/> <br/>
 
 <jsp:include page="myFooter.jsp" />
+
+HTML Forms are used to get input from the user
