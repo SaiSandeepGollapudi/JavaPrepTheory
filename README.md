@@ -676,3 +676,67 @@ Blah blah blah .... <br/> <br/>
 <jsp:include page="myFooter.jsp" />
 
 HTML Forms are used to get input from the user
+
+HTML FILE
+ <form action="student-response.jsp">
+
+First name: <input type="text" name="firstName" /> 
+Last name: <input type="text" name="lastName" />
+	<input type="submit" value="Submit" />
+</form>
+
+JSP FILE
+<%= request.getParameter(“firstName”) %> <%= request.getParameter(“lastName”) %>
+Alternate syntax: ${param.formFieldName}
+The student is confirmed: ${param.firstName} ${param.lastName}
+
+HTML FILE
+
+Drop-Down Lists - HTML <select> tag
+<select name="country">
+		<option>France</option>
+		<option>Germany</option>
+		<option>India</option>
+		<option>Turkey</option>
+  	</select>
+
+ JSP FILE
+
+We use the same syntax to get values from the Drop-Down List as name/text
+ The student's country: ${param.country}
+
+HTML for Radio Button
+
+<input type="radio" name="favoriteLanguage" value="Java"> Java
+<input type="radio" name="favoriteLanguage" value="C#"> C#
+
+We use the same syntax to get values from the Radio Button as name/text
+	The student's favorite programming language: ${param.favoriteLanguage}
+ 
+HTML for Check Box		
+<input type="checkbox" name="favoriteLanguage" value="Java"> Java
+
+<input type="checkbox" name="favoriteLanguage" value="C#"> C#
+
+JSP
+you can add comments like this 
+			<!--  you can add comments like this or //-->	
+	<!-- display list of "favoriteLanguage" -->	
+<ul> //unordered list 
+		<%
+			String[] langs = request.getParameterValues("favoriteLanguage");
+
+		if (langs != null) { //If the user doesn't select a checkbox, you will have a null pointer exception. You can handle this by checking for null before displaying the data.
+                for (String tempLang : langs) {
+                    out.println("<li>" + tempLang + "</li>");
+                }
+            }
+		%>
+</ul>
+
+JSP session 
+is created once for the user’s browser session. Unique for this user. Commonly used when you need to keep track of the user’s actions  
+eg Online exam 
+
+
+
