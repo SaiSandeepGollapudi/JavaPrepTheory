@@ -738,5 +738,156 @@ JSP session
 is created once for the user’s browser session. Unique for this user. Commonly used when you need to keep track of the user’s actions  
 eg Online exam 
 
+JSP page to manage a TO DO list 
+List of items will be stored in the user’s session object  Each user will have their own TO DO list
+
+Add data to session object
+List<String> items = new ArrayList<>();
+session.setAttribute(“myToDoList”, items);
+
+Retrieve data from session object
+List<String> myStuff = (List<String>) session.getAttribute(“myToDoList”);
+
+Session - Other useful methods
+
+isNew() : boolean Returns true if the session is new
+ getId() : String
+ Returns the session id
+ invalidate() : void
+ Invalidates this session and unbinds any object associated with it
+  setMaxInactiveInterval(long mills) : void
+ Sets the idle time for a session to expire. The value is supplied in milliseconds
+
+<%
+        // get the TO DO items from the session
+        List<String> items = (List<String>) session.getAttribute("myToDoList");
+This section of code access the JSP session object. The session object is unique for each web user. We attempt to get the TO DO items from the session.The session.getAttribute method will always return something of type java.lang.Object. We downcast this to List<String> 
+
+
+Purpose of Cookies?
+• Personalize a web site for a user 
+• Keep track of user preferences
+• Favorite programming language: Java
+• Favorite departure airport: Philadelphia (PHL)
+
+Cookie?
+Text data exchanged between web browser and server
+
+Contents
+Name / value pair
+name: myApp.favoriteCity value: Philadelphia
+
+How Are Cookies Passed?
+Browser will only send cookies that match the server’s domain name
+
+Cookie API - Constructor
+ Cookie(String name, String value)
+
+<!-- read the favorite programming language cookie -->
+<%
+	// the default ... if there are no cookies
+	String favLang = "Java";
+
+	// get the cookies from the browser request
+	Cookie[] theCookies = request.getCookies();
+	
+	// find our favorite language cookie
+	if (theCookies != null) {
+		
+		for (Cookie tempCookie : theCookies) {
+			
+			if ("myApp.favoriteLanguage".equals(tempCookie.getName())) {
+				favLang = tempCookie.getValue();
+				break;
+			}
+ <%
+	// read form data
+	String favLang = request.getParameter("favoriteLanguage");
+
+	// create the cookie
+	Cookie theCookie = new Cookie("myApp.favoriteLanguage", favLang);
+	
+	// set the life span ... total number of seconds (yuk!)
+	theCookie.setMaxAge(60*60*24*365);    // <-- for one year
+	
+	// send cookie to browser
+	response.addCookie(theCookie);
+%>
+
+JSP Custom Tags
+Move heavy business logic into supporting class Insert JSP custom tag to use supporting class
+
+JSP Custom Tags
+Minimize the amount of scriptlet code in a JSP 
+Avoids dumping thousands of lines of code in a JSP 
+JSP page is simple ... main focus of JSP is only the presentation  Tag is reusable
+
+JSP Standard Tag Library (JSTL)
+Oracle created a Specification for standard tags
+
+Functions - Prefix “fn”
+Collection Length
+length 
+String manipulation
+toUpperCase, toLowerCase
+substring, substringAfter, substringBefore
+trim, replace, indexOf, startsWith, endsWith contains, containsIgnoreCase, split, join, escapeXml
+
+JSP is a technology that enables the creation of dynamic web pages using Java.
+It allows embedding Java code within HTML pages, making it easier to write and maintain dynamic web content.
+JSP pages are compiled into servlets by the server during deployment, providing efficient execution.
+
+Servlets:
+
+Servlets are Java classes that extend the functionality of a web server to generate dynamic content and handle client requests.
+They are the foundation of Java web development, providing a server-side solution for processing HTTP requests and generating responses.
+Servlets can interact with databases, perform authentication, handle sessions, and more, making them versatile for building web applications.
+
+Servlets?
+Java class that is processed on the server
+Java class generates HTML that is returned to browser
+Can read HTML form data, use cookies and sessions etc...
+At a high-level, similar functionality to JSPs
+
+
+JSPs
+HTML file with .jsp extension  • Contains static HTML 
+• JSP to generate HTML 
+• Has built-in JSP objects
+
+Servlets
+Java class file 
+• Generate all HTML 
+• More steps to access web objects
+
+Best Practice
+Integrate them both together!
+Servlet does the business logic
+JSP handles the presentation view 
+servlets and JSP serve complementary roles in Java web development. Servlets provide powerful request handling capabilities and serve as the backbone for dynamic web applications, while JSP simplifies the creation of dynamic web pages by enabling the embedding of Java code within HTML. Choosing between them often depends on the specific requirements and complexity of the web application being developed
+
+GET method calls Servlet doGet() method
+
+Sending Data with GET method
+
+Form data is added to end of URL as name/value pairs
+theUrl?field1=value1&field2=value2
+
+Good for debugging
+• Bookmark or email URL  • Limitations on data length, - for non sensitive data 
+
+Sending Data with POST method
+Form data is passed in the body of HTTP request message
+
+Can’t bookmark or email URL  • No limitations on data length  • Can also send binary data -  for sensitive data 
+
+Configuration Parameters
+Your web app can make use of configuration parameters  Located in standard file: WEB-INF/web.xml
+Descriptor: web.xml. configuration parameters enhance flexibility, maintainability, and security of web applications, providing a way to adapt to different environments and requirements with minimal code changes.
+
+Reading servlet parameters from the web.xml file enhances the flexibility, maintainability, and security of Java web applications by providing a centralized, dynamic, and scalable mechanism for configuring servlet behavior.
+
+
+
 
 
