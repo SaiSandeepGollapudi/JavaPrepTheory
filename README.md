@@ -36,9 +36,9 @@ For example, a Car class may have fields like make, model, and year, and methods
 
 Object: An object is an instance of a class. It represents a real-world entity and has  (properties) and (methods) defined by its class. For example, if a Car is a class, an object myCar could represent a specific car with its make, model, and year.
 
- Constructor: It’s a special method used to initialize objects and allocate memory. 
+ #Constructor: It’s a special method used to initialize objects and allocate memory. 
 
- Notes:
+ #Notes:
  it is called when an object is created, it can be used to set initial values for object attributes. constructors have the same name as the class. Constructors may accept parameters for initialization.
 
 If a Grandchild class object is created then as we know Grandchild class inherits the Child class constructor and the Child class inherits the Parent class constructor so if the Grandchild object First executes then all the constructors are executed automatically from the parent class and then level by level. 
