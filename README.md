@@ -592,7 +592,7 @@ These 3 statements make JAR unique and allow us search and to get a JAR file
 We can also download a jar file from Maven online and add that by file - project structure, - library, and add library.
 
 JSP 
-JSP: JavaServer Pages - Dynamic web pages using Java embedded in HTML.
+JSP: JavaServer Pages - Dynamic web pages using Java, embedded in HTML.
 
 Servlets: Java classes extending web server functionality for handling HTTP requests and generating responses.
 
